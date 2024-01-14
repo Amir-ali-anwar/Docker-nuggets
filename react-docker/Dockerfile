@@ -13,7 +13,7 @@ USER root
 RUN chown -R app:app .
 USER app
 RUN npm install
-
+RUN npm install vite@3.2.2
 # Copy the application code
 COPY . .
 
