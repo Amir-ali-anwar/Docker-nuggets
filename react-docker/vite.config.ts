@@ -7,8 +7,6 @@ export default defineConfig({
   host:true,
   server: {
     host: true,
-    hmr: {
-      port: 3101,
-    },
+    
   }
 })

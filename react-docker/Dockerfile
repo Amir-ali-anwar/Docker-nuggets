@@ -1,21 +1,19 @@
+# Use the official Node.js 20 Alpine image as the base image
 FROM node:20-alpine
 
 # Create a non-root user
 RUN addgroup app && adduser -S -G app app
 
-# Set the user to 'app' and set working directory
+# Set the user to 'app' and set the working directory
 USER app
 WORKDIR /app
 
 # Copy package files and install dependencies
-COPY package*.json ./
-USER root
-RUN chown -R app:app .
-USER app
+COPY package*.json .
 RUN npm install
-RUN npm install vite@3.2.2
+
 # Copy the application code
-COPY . .
+COPY --chown=app:app . .
 
 # Expose the specified port
 EXPOSE 5173
