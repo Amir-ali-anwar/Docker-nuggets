@@ -1,5 +1,5 @@
 # Use the official Node.js 20 Alpine image as the base image
-FROM node:20-alpine
+FROM node:18
 
 # Create a non-root user
 RUN addgroup app && adduser -S -G app app
